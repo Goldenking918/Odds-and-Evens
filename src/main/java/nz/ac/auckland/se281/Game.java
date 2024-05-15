@@ -6,7 +6,8 @@ import nz.ac.auckland.se281.Main.Difficulty;
 /** This class represents the Game is the main entry point. */
 public class Game {
   private int round;
-  private String[] options;
+  private String[] options = {"", "HAL-9000"};
+  private Choice choice;
 
   private Ai ai;
   private int aiFingers;
@@ -14,7 +15,8 @@ public class Game {
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
-    this.options = options;
+    this.options[0] = options[0];
+    this.choice = choice;
     ai = AiFactory.createAi(difficulty);
     round = 0;
   }
@@ -34,7 +36,21 @@ public class Game {
     aiFingers = ai.getAction();
 
     MessageCli.PRINT_INFO_HAND.printMessage(options[0], input);
-    MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", Integer.toString(aiFingers));
+    MessageCli.PRINT_INFO_HAND.printMessage(options[1], Integer.toString(aiFingers));
+    int sum = aiFingers + Integer.parseInt(input);
+    if (Utils.isEven(sum)) {
+      if (choice == Choice.EVEN) {
+        MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "EVEN", options[0]);
+      } else {
+        MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "EVEN", options[1]);
+      }
+    } else {
+      if (choice == Choice.ODD) {
+        MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "ODD", options[0]);
+      } else {
+        MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "ODD", options[1]);
+      }
+    }
   }
 
   public void endGame() {}
