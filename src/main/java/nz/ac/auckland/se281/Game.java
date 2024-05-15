@@ -20,7 +20,14 @@ public class Game {
     MessageCli.START_ROUND.printMessage(Integer.toString(round));
     MessageCli.ASK_INPUT.printMessage();
     String input = Utils.scanner.nextLine();
-    MessageCli.INVALID_INPUT.printMessage();
+    int fingers = Integer.parseInt(input);
+
+    while (fingers > 5 || fingers < 0) {
+      MessageCli.INVALID_INPUT.printMessage();
+      input = Utils.scanner.nextLine();
+      fingers = Integer.parseInt(input);
+    }
+
     MessageCli.PRINT_INFO_HAND.printMessage(options[0], input);
   }
 
