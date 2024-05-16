@@ -10,7 +10,7 @@ public class Game {
   private int round;
   private String[] options = {"", "HAL-9000"};
   private Choice choice;
-  private List<Boolean> choices = new ArrayList<Boolean>();
+  private List<Boolean> choices;
 
   private Ai ai;
   private int aiFingers;
@@ -20,6 +20,7 @@ public class Game {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
     this.options[0] = options[0];
     this.choice = choice;
+    choices = new ArrayList<Boolean>();
     ai = AiFactory.createAi(difficulty);
     round = 0;
   }

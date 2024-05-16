@@ -8,7 +8,7 @@ public class AiFactory {
       case EASY:
         return new EasyAi();
       case MEDIUM:
-        return new EasyAi();
+        return new MediumAi();
       case HARD:
         return new EasyAi();
     }
