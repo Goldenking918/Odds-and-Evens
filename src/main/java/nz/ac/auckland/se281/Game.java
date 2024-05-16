@@ -80,6 +80,7 @@ public class Game {
     } else {
       MessageCli.PRINT_END_GAME_TIE.printMessage();
     }
+    round = 0;
   }
 
   public void showStats() {
