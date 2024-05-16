@@ -1,11 +1,10 @@
 package nz.ac.auckland.se281;
 
-import java.util.ArrayList;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
 public class TopStrategy implements Strategy {
-  private List<Boolean> choices = new ArrayList<Boolean>();
+  private List<Boolean> choices;
   private Choice choice;
   private int even;
   private int odd;
