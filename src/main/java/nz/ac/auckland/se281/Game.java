@@ -18,6 +18,14 @@ public class Game {
   private Ai ai;
   private int aiFingers;
 
+  /**
+   * User inputs a difficulty, either EVEN or ODD and their name. The method uses these and creates
+   * a new game by creating an Ai and setting the round to 1.
+   *
+   * @param difficulty difficulty in the Difficulty Enum EASY, MEDIUM or HARD
+   * @param choice Either EVEN or ODD in the Choice Enum
+   * @param options User inputted name
+   */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
