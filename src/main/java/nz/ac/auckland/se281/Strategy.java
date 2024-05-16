@@ -1,5 +1,8 @@
 package nz.ac.auckland.se281;
 
+/**
+ * Strategy interface uses Strategy Design pattern for implementation in the different strategies.
+ */
 public interface Strategy {
 
   /**

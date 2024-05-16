@@ -3,6 +3,10 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
+/**
+ * Class extending Ai if the Difficulty selected is Medium. Uses Random for the first 3 rounds then
+ * switches to the top strategy.
+ */
 public class MediumAi extends Ai {
 
   /**

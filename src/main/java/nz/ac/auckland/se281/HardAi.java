@@ -3,6 +3,10 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
+/**
+ * Class extending Ai when the hard difficulty is selected uses Random for the first 3 rounds then
+ * switches between top and random depending on if the Ai won the previous round.
+ */
 public class HardAi extends Ai {
 
   /**

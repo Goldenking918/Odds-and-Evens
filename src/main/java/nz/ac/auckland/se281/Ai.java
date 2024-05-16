@@ -3,6 +3,11 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
+/**
+ * Abstract class that uses the Strategy Design Pattern to create Ai with easily changeable
+ * Strategies by making them all implement the Strategy Interface. It can change the strategy using
+ * setStrategy and get the number of fingers using getAction.
+ */
 public abstract class Ai {
   protected Strategy strategy;
 

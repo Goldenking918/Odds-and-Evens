@@ -3,6 +3,11 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
+/**
+ * A class using the Strategy design pattern by implementing Strategy. It checks if the players
+ * previous answers was more even or odd and changes the outputted integer to win if the player
+ * picks the same answer.
+ */
 public class TopStrategy implements Strategy {
   private List<Boolean> choices;
   private Choice choice;

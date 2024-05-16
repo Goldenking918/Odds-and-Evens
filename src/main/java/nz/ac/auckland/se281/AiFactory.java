@@ -2,6 +2,10 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Difficulty;
 
+/**
+ * A class using the Factory Design Pattern to create different Difficulty Ai's all extending the Ai
+ * abstract method.
+ */
 public class AiFactory {
   /**
    * Creates different Ai based on the difficulty inputted.
