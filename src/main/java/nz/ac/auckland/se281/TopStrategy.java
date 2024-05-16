@@ -14,6 +14,11 @@ public class TopStrategy implements Strategy {
     this.choice = choice;
   }
 
+  /**
+   * Gets the number of even and odd answers the player has given. Checks whether there is more even
+   * or odd and returns a even or odd number depending on which would make the Ai win. Otherwise if
+   * even and odd are equal, a random number is returned.
+   */
   @Override
   public int getFingers() {
     for (Boolean evenOdd : choices) {
