@@ -1,5 +1,7 @@
 package nz.ac.auckland.se281;
 
+import java.util.ArrayList;
+import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
@@ -8,6 +10,7 @@ public class Game {
   private int round;
   private String[] options = {"", "HAL-9000"};
   private Choice choice;
+  private List<Boolean> choices = new ArrayList<Boolean>();
 
   private Ai ai;
   private int aiFingers;
@@ -32,8 +35,9 @@ public class Game {
       MessageCli.ASK_INPUT.printMessage();
       input = Utils.scanner.nextLine();
     }
-    ai.setStrategy();
+    ai.setStrategy(choices, choice);
     aiFingers = ai.getAction();
+    choices.add(Utils.isEven(Integer.parseInt(input)));
 
     MessageCli.PRINT_INFO_HAND.printMessage(options[0], input);
     MessageCli.PRINT_INFO_HAND.printMessage(options[1], Integer.toString(aiFingers));
