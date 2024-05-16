@@ -86,6 +86,10 @@ public class Game {
     round++;
   }
 
+  /**
+   * Shows the stats of the game and message displaying the results of the game and reseting the
+   * rounds to 0.
+   */
   public void endGame() {
     showStats();
     if (wins > aiWins) {
@@ -98,6 +102,7 @@ public class Game {
     round = 0;
   }
 
+  /** Shows how many rounds the player and Ai has won and lost. */
   public void showStats() {
     if (round == 0) {
       MessageCli.GAME_NOT_STARTED.printMessage();
