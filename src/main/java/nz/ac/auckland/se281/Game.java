@@ -12,6 +12,8 @@ public class Game {
   private Choice choice;
   private List<Boolean> choices;
   private Boolean result;
+  private int wins;
+  private int aiWins;
 
   private Ai ai;
   private int aiFingers;
@@ -51,6 +53,7 @@ public class Game {
       if (choice == Choice.EVEN) {
         MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "EVEN", options[0]);
         result = false;
+        wins++;
       } else {
         MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "EVEN", options[1]);
         result = true;
@@ -59,6 +62,7 @@ public class Game {
       if (choice == Choice.ODD) {
         MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "ODD", options[0]);
         result = false;
+        wins++;
       } else {
         MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "ODD", options[1]);
         result = true;
@@ -69,12 +73,25 @@ public class Game {
 
   public void endGame() {
     showStats();
+    if (wins > aiWins) {
+      MessageCli.PRINT_END_GAME.printMessage(options[0]);
+    } else if ((wins < aiWins)) {
+      MessageCli.PRINT_END_GAME.printMessage(options[1]);
+    } else {
+      MessageCli.PRINT_END_GAME_TIE.printMessage();
+    }
   }
 
   public void showStats() {
     if (round == 0) {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
+    } else {
+      aiWins = (round - 1) - wins;
+      MessageCli.PRINT_PLAYER_WINS.printMessage(
+          options[0], Integer.toString(wins), Integer.toString(aiWins));
+      MessageCli.PRINT_PLAYER_WINS.printMessage(
+          options[1], Integer.toString(aiWins), Integer.toString(wins));
     }
   }
 }
