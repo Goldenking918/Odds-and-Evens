@@ -14,6 +14,7 @@ public class HardAi extends Ai {
     if (choices.size() < 3) {
       this.strategy = new RandomStrategy();
     } else if (!result) {
+      // Switches the Strategy if the previous round was lost by the Ai, otherwise stays the same.
       if (this.strategy instanceof RandomStrategy) {
         this.strategy = new TopStrategy(choices, choice);
       } else {

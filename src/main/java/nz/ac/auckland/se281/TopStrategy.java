@@ -21,6 +21,7 @@ public class TopStrategy implements Strategy {
    */
   @Override
   public int getFingers() {
+    // Iterates through the choices list and counts the number of even and odd answers.
     for (Boolean evenOdd : choices) {
       if (evenOdd) {
         even++;
@@ -28,6 +29,8 @@ public class TopStrategy implements Strategy {
         odd++;
       }
     }
+    // Chooses the output that would result in a win for the Ai if the player picks the most used
+    // answer.
     if (even > odd) {
       if (choice == Choice.EVEN) {
         return Utils.getRandomOddNumber();
@@ -41,6 +44,7 @@ public class TopStrategy implements Strategy {
         return Utils.getRandomOddNumber();
       }
     } else {
+      // Picks a Random number if odd and even are equal.
       return Utils.getRandomNumberRange(0, 5);
     }
   }
