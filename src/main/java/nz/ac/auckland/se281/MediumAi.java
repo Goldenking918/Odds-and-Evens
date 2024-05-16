@@ -8,7 +8,7 @@ public class MediumAi implements Ai {
 
   @Override
   public void setStrategy(List<Boolean> choices, Choice choice) {
-    if (choices.size() <= 3) {
+    if (choices.size() < 3) {
       this.strategy = new RandomStrategy();
     } else {
       this.strategy = new TopStrategy(choices, choice);
