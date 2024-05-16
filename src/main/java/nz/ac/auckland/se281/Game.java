@@ -11,6 +11,7 @@ public class Game {
   private String[] options = {"", "HAL-9000"};
   private Choice choice;
   private List<Boolean> choices;
+  private Boolean result;
 
   private Ai ai;
   private int aiFingers;
@@ -36,7 +37,7 @@ public class Game {
       MessageCli.ASK_INPUT.printMessage();
       input = Utils.scanner.nextLine();
     }
-    ai.setStrategy(choices, choice);
+    ai.setStrategy(choices, choice, result);
     aiFingers = ai.getAction();
     choices.add(Utils.isEven(Integer.parseInt(input)));
 
@@ -46,14 +47,18 @@ public class Game {
     if (Utils.isEven(sum)) {
       if (choice == Choice.EVEN) {
         MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "EVEN", options[0]);
+        result = false;
       } else {
         MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "EVEN", options[1]);
+        result = true;
       }
     } else {
       if (choice == Choice.ODD) {
         MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "ODD", options[0]);
+        result = false;
       } else {
         MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "ODD", options[1]);
+        result = true;
       }
     }
   }

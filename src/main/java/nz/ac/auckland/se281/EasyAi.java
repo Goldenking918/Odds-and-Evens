@@ -12,7 +12,7 @@ public class EasyAi implements Ai {
   }
 
   @Override
-  public void setStrategy(List<Boolean> choices, Choice choice) {
+  public void setStrategy(List<Boolean> choices, Choice choice, Boolean result) {
     this.strategy = new RandomStrategy();
   }
 }
