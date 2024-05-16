@@ -7,7 +7,7 @@ import nz.ac.auckland.se281.Main.Difficulty;
 
 /** This class represents the Game is the main entry point. */
 public class Game {
-  private int round;
+  private int round = 0;
   private String[] options = {"", "HAL-9000"};
   private Choice choice;
   private List<Boolean> choices;
@@ -23,11 +23,14 @@ public class Game {
     this.choice = choice;
     choices = new ArrayList<Boolean>();
     ai = AiFactory.createAi(difficulty);
-    round = 0;
+    round = 1;
   }
 
   public void play() {
-    round++;
+    if (round == 0) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
     MessageCli.START_ROUND.printMessage(Integer.toString(round));
     MessageCli.ASK_INPUT.printMessage();
     String input = Utils.scanner.nextLine();
@@ -61,6 +64,7 @@ public class Game {
         result = true;
       }
     }
+    round++;
   }
 
   public void endGame() {}
