@@ -44,6 +44,7 @@ public class Game {
    * winning message is printed out.
    */
   public void play() {
+    // Checks if a new game has been initalised otherwise returns error.
     if (round == 0) {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
@@ -52,6 +53,7 @@ public class Game {
     MessageCli.ASK_INPUT.printMessage();
     String input = Utils.scanner.nextLine();
 
+    // Checks whether the input is an integer first before checking if its in the range 0 to 5.
     while (!Utils.isInteger(input) || Integer.parseInt(input) > 5 || Integer.parseInt(input) < 0) {
       MessageCli.INVALID_INPUT.printMessage();
       MessageCli.ASK_INPUT.printMessage();
@@ -64,6 +66,7 @@ public class Game {
     MessageCli.PRINT_INFO_HAND.printMessage(options[0], input);
     MessageCli.PRINT_INFO_HAND.printMessage(options[1], Integer.toString(aiFingers));
     int sum = aiFingers + Integer.parseInt(input);
+    // Checks who won the round based on the choice selected by the player.
     if (Utils.isEven(sum)) {
       if (choice == Choice.EVEN) {
         MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(sum), "EVEN", options[0]);
@@ -92,6 +95,7 @@ public class Game {
    */
   public void endGame() {
     showStats();
+    // Prints message displaying the winner or a tie, then reseting the round count.
     if (wins > aiWins) {
       MessageCli.PRINT_END_GAME.printMessage(options[0]);
     } else if ((wins < aiWins)) {
@@ -108,6 +112,7 @@ public class Game {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
     } else {
+      // Checks the amount of wins and losses the player has and flips them for the Ai.
       aiWins = (round - 1) - wins;
       MessageCli.PRINT_PLAYER_WINS.printMessage(
           options[0], Integer.toString(wins), Integer.toString(aiWins));

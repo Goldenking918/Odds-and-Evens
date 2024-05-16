@@ -10,6 +10,7 @@ public class AiFactory {
    * @return returns null if a correct difficulty isn't inputted.
    */
   public static Ai createAi(Difficulty difficulty) {
+    // Switch case that changes the returned Ai depending on the Difficulty inputted.
     switch (difficulty) {
       case EASY:
         return new EasyAi();
