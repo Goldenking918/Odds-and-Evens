@@ -3,8 +3,7 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
-public class HardAi implements Ai {
-  private Strategy strategy;
+public class HardAi extends Ai {
 
   @Override
   public void setStrategy(List<Boolean> choices, Choice choice, Boolean result) {
@@ -17,10 +16,5 @@ public class HardAi implements Ai {
         this.strategy = new RandomStrategy();
       }
     }
-  }
-
-  @Override
-  public int getAction() {
-    return strategy.getFingers();
   }
 }
