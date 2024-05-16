@@ -36,6 +36,13 @@ public class Game {
     round = 1;
   }
 
+  /**
+   * Gets an integer from 1 to 5 (number of fingers) inputted from the user, then the Ai outputs a
+   * integer changing strategy based on difficulty. Depending on the choice of either EVEN or ODD
+   * made by the player and if the sum of the two numbers is even or odd the winner changes. If the
+   * answer is identical to what the player picked the player wins, otherwise 'HAL-9000' wins and a
+   * winning message is printed out.
+   */
   public void play() {
     if (round == 0) {
       MessageCli.GAME_NOT_STARTED.printMessage();
