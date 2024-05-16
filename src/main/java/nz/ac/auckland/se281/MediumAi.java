@@ -5,6 +5,10 @@ import nz.ac.auckland.se281.Main.Choice;
 
 public class MediumAi extends Ai {
 
+  /**
+   * For the first 3 rounds the strategy is set to Random Strategy. Afterwards the strategy is set
+   * to Top Strategy.
+   */
   @Override
   public void setStrategy(List<Boolean> choices, Choice choice, Boolean result) {
     if (choices.size() < 3) {
