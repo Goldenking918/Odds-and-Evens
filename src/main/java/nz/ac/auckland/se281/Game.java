@@ -67,7 +67,14 @@ public class Game {
     round++;
   }
 
-  public void endGame() {}
+  public void endGame() {
+    showStats();
+  }
 
-  public void showStats() {}
+  public void showStats() {
+    if (round == 0) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+  }
 }
